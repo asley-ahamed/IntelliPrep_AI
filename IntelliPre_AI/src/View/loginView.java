@@ -25,6 +25,7 @@ public class loginView extends JFrame {
 	private JButton btnLogin;
 	private JLabel lblSignup;
 	private JCheckBox check_showPassword;
+	private JLabel lblForgotPassword;
 
 
 	public loginView()
@@ -72,8 +73,8 @@ public class loginView extends JFrame {
         contentPane.add(txtPassword);
         
         JLabel lblEnterUsername = new JLabel("Username");
-        lblEnterUsername.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        lblEnterUsername.setBounds(536, 334, 119, 21);
+        lblEnterUsername.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+        lblEnterUsername.setBounds(536, 335, 119, 21);
         contentPane.add(lblEnterUsername);
         
         JLabel lblUserIcon = new JLabel("👤");
@@ -83,9 +84,10 @@ public class loginView extends JFrame {
         contentPane.add(lblUserIcon);
         
         check_showPassword = new JCheckBox("Show Password");
-        check_showPassword.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        check_showPassword.setForeground(Color.DARK_GRAY);
+        check_showPassword.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
         check_showPassword.setBackground(Color.WHITE);
-        check_showPassword.setBounds(697, 489, 126, 20);
+        check_showPassword.setBounds(502, 489, 126, 20);
         contentPane.add(check_showPassword);
         
         txtUsername = new JTextField();
@@ -102,11 +104,11 @@ public class loginView extends JFrame {
         contentPane.add(lblPassIcon);
         
         JLabel lblEnterPassword = new JLabel("Password");
-        lblEnterPassword.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        lblEnterPassword.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
         lblEnterPassword.setBounds(536, 413, 151, 21);
         contentPane.add(lblEnterPassword);
         
-         btnLogin = new JButton("LOGIN");
+        btnLogin = new JButton("LOGIN");
         btnLogin.setSelected(true);
         btnLogin.setOpaque(true);
         btnLogin.setForeground(new Color(255, 255, 255));
@@ -132,11 +134,18 @@ public class loginView extends JFrame {
         lblSignup.setBounds(707, 573, 55, 20);
         contentPane.add(lblSignup);
         
-        	ImagePanel img_2 = new ImagePanel("/images/image_2.png");
-               img_2.setBounds(487, 90, 343, 234);
-                contentPane.add(img_2);
-                img_2.setBackground(Color.WHITE);
-                img_2.setLayout(null);
+        ImagePanel img_2 = new ImagePanel("/images/image_2.png");
+        img_2.setBounds(487, 90, 343, 234);
+        contentPane.add(img_2);
+        img_2.setBackground(Color.WHITE);
+        img_2.setLayout(null);
+        
+        lblForgotPassword = new JLabel("Forgort Password?");
+        lblForgotPassword.setForeground(new Color(108, 77, 255));
+        lblForgotPassword.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+        lblForgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        lblForgotPassword.setBounds(689, 488, 119, 20);
+        contentPane.add(lblForgotPassword);
 	}
 	
 	public JTextField getUsername()
@@ -162,5 +171,9 @@ public class loginView extends JFrame {
 	public boolean isShowPasswordSelected()
 	{
 	    return check_showPassword.isSelected();
+	}
+	public void forgotPasswordLabelListener(MouseListener listener)
+	{
+		lblForgotPassword.addMouseListener(listener);
 	}
 }
