@@ -65,6 +65,8 @@ public class signUpController
 						loginView view=new loginView();
 						loginModel model=new loginModel();
 						new loginController(model, view);
+						
+						view.setVisible(true);
 					}
 					else
 					{
