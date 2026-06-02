@@ -2,6 +2,9 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 import javax.swing.JOptionPane;
 
@@ -20,6 +23,8 @@ public class signUpController
 		this.model=model;
 		this.view=view;
 		this.view.signUpButtonListener(new SignUpButtonListener());
+		this.view.lblLoginListenener(new lblLoginListenener() );
+		this.view.showPasswordListener(new ShowPasswordListener());
 	}
 	
 	class SignUpButtonListener implements ActionListener
@@ -76,6 +81,41 @@ public class signUpController
 
 			
 		}
+	}
+	class lblLoginListenener extends MouseAdapter
+	{
+		public void mouseClicked(MouseEvent e)
+		{
+
+			view.dispose();
+			loginView view=new loginView();
+			loginModel model=new loginModel();
+			new loginController(model, view);
+			
+			view.setVisible(true);
+			
+			
+		}
+	}
+	
+	class ShowPasswordListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			if(view.isShowPasswordSelected())
+			{
+				view.getTxtPassword().setEchoChar((char)0);
+				view.getTxtConfirmPassword().setEchoChar((char)0);
+			}
+			else 
+			{
+				view.getTxtPassword().setEchoChar('*');
+				view.getTxtConfirmPassword().setEchoChar('*');
+				
+				
+			}
+		}
+		
 	}
 	
 
